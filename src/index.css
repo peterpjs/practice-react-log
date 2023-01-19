@@ -1,0 +1,26 @@
+
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: #DFDFDF;
+    margin: 0;
+}
+
+
+
+
+
+.month{
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    background-color: #D62828;
+
+}
+
+.day{
+    height: 60px ;
+    line-height: 60px;
+    font-size: 50px;
+}
