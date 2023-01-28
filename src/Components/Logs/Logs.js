@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import LogItem from "./LogItem/LogItem";
 import './Logs.css'
+import Card from "../UI/Card/Card";
 const Logs = () => {
 
     const logsData=[
@@ -30,13 +31,13 @@ const Logs = () => {
     ]
     const logItemDate= logsData.map((item)=> <LogItem key={item.id} date={item.date} desc={item.desc} time={item.time}/>);
     return (
-        <div className="logs">
+        <Card className="logs">
             {
 
                 logItemDate
                 // logsData.map((item,index)=> <LogItem key={item.id}{...item}/>)
             }
-        </div>
+        </Card>
     );
 };
 
