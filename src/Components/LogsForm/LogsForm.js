@@ -4,7 +4,7 @@ import './LogsForm.css'
 const LogsForm = () => {
     return (
         <Card className = "logs-form">
-            <form >2
+            <form >
                 <div className="form-item">
                     <label htmlFor="date">日期</label>
                     <input id="date" type="date"/>
