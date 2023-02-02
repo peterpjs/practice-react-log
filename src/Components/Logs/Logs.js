@@ -1,40 +1,28 @@
-import React, {useState} from 'react';
+import React  from 'react';
 import LogItem from "./LogItem/LogItem";
 import './Logs.css'
 import Card from "../UI/Card/Card";
-const Logs = () => {
+const Logs = (props) => {
+    /**
+     * losgData用来存储学习的日志，这个数据处理当前组件Logs使用外，LogsForm也需要使用
+     * 当遇到一个数据需要被多个组件使用时，我们可以将数据放入到这些组件共同的祖先元素中
+     * 这样就可以使得多个组件都能方便的访问到这个数据
+     * */
 
-    const logsData=[
-        {   id:'001',
-            date:new Date(2022,1,20,18,30),
-            desc:'study a',
-            time:30
-        },
-        {
-            id:'002',
-            date:new Date(2023,2,20,18,30),
-            desc:'study b',
-            time:20
-        },
-        {
-            id:'003',
-            date:new Date(2023,3,20,18,30),
-            desc:'study c',
-            time:60
-        },
-        {
-            id:'004',
-            date:new Date(2023,5,20,18,30),
-            desc:'study d',
-            time:10
-        }
-    ]
-    const logItemDate= logsData.map((item)=> <LogItem key={item.id} date={item.date} desc={item.desc} time={item.time}/>);
+    let logItemDate= props.logsData.map((item,index)=> <LogItem
+                                                                  onDelLog={()=>props.onDelLog(index)}
+                                                                  key={item.id}
+                                                                  date={item.date}
+                                                                  desc={item.desc}
+                                                                  time={item.time}/>);
+    if( logItemDate.length===0){
+        logItemDate=<p className='no-logs'>没找到日志！</p>;
+    }
     return (
         <Card className="logs">
             {
-
                 logItemDate
+                //logItemDate.length!==0?logItemDate:<p className='no-logs'>没找到日志！</p>
                 // logsData.map((item,index)=> <LogItem key={item.id}{...item}/>)
             }
         </Card>
