@@ -2,6 +2,7 @@
 import LogsForm from "./Components/LogsForm/LogsForm";
 import './App.css'
  import {useState} from "react";
+ import ConfirmModal from "./Components/UI/ConfirmModal/ConfirmModal";
 
 const App= ()=>{
     const [logsData,setLogsData]=useState([
