@@ -3,7 +3,7 @@ import './ConfirmModal.css'
 import BackDrop from "../../UI/backDrop/BackDrop";
 
 const ConfirmModal =props=>{
-        return <BackDrop>
+        return (<BackDrop>
                 <Card className="confirmModal">
                    <div className="confirmText">
                        {props.confirmText}
@@ -13,7 +13,7 @@ const ConfirmModal =props=>{
                         <button onClick={props.onCancel} >取消</button>
                     </div>
                  </Card>
-        </BackDrop>
+        </BackDrop>);
 }
 
 

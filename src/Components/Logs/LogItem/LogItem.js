@@ -26,8 +26,15 @@ const LogItem = (props) => {
         props.onDelLog( )
         setShowConfirm(false)
     }
-    return (
-            <Card className="item">
+    /**
+     * portal
+     * 组件默认会作为父组件的后代渲染到页面中 但是有些情况下，这种方式会带来一些问题
+     *通过portal可以将组件渲染到页面中的指定位置
+     *1.在index.html添加一个新元素
+     *2.修改组件的渲染方式 -通过ReactDom.createPortal作为返回值的创建元素
+     *                  -参数：1.jsx（修改前return后的代码） 2.目标位置（DOM元素）
+     */
+    return (<Card className="item">
                 {showConfirm&&<ConfirmModal  confirmText={confirmText} onCancel={cancelHandler} confirmHandler={confirmHandler}/>}
                 <MyDate date={props.date}/>
                 {/*日志内容的容器*/}
@@ -38,9 +45,8 @@ const LogItem = (props) => {
                 <div>
                     <div onClick={deleteItemHandler} className='delete'>×</div>
                 </div>
-            </Card>
+            </ Card >)
 
-    );
 };
 
 export default LogItem;
